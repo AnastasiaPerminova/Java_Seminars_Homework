@@ -1,6 +1,4 @@
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 import java.util.Scanner;
 
 //Реализовать консольное приложение, которое:
@@ -21,6 +19,7 @@ public class HomeWork4 {
                 "Для вывода позиции num введите print~num.\nДля завершения введите exit.\nВведите: ");
 
         while (true) {
+
             String input = sc.nextLine();
 
             if (input.contains("~")) {
@@ -43,10 +42,15 @@ public class HomeWork4 {
                         try {
                             List.set(index, split[0]);
                         } catch (IndexOutOfBoundsException e) {
-                            while (List.size() <= index) {
-                                List.add(null);
+                            if (index < 0){
+                                System.out.println("\u001B[31mОшибка ввода.\u001B[0m\nОтрицательных чисел быть не должно!");}
+
+                            else{
+                                while (List.size() <= index) {
+                                    List.add(null);
+                                }
+                                List.set(index, split[0]);
                             }
-                            List.set(index, split[0]);
                         }
                     }
 
